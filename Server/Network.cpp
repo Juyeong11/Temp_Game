@@ -47,7 +47,7 @@ void Network::send_move_object(int c_id, int mover)
 void Network::send_put_object(int c_id, int target) {
 	sc_packet_put_object packet;
 
-	strcpy_s(packet.name, clients[target].name);
+	//strcpy_s(packet.name, clients[target].name);
 	packet.id = target;
 	packet.size = sizeof(packet);
 	packet.type = SC_PACKET_PUT_OBJECT;
@@ -137,7 +137,7 @@ void Network::process_packet(int client_id, unsigned char* p)
 			other.viewlist.insert(client_id);
 			other.vl.unlock();
 
-			send_put_object(other.id, client_id);
+			//send_put_object(other.id, client_id);
 		}
 
 		//새로 접속한 클라이언트에게 현재 클라이언트들의 현황을 알려줌
