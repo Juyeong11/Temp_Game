@@ -137,7 +137,7 @@ void Network::process_packet(int client_id, unsigned char* p)
 			other.viewlist.insert(client_id);
 			other.vl.unlock();
 
-			//send_put_object(other.id, client_id);
+			send_put_object(other.id, client_id);
 		}
 
 		//새로 접속한 클라이언트에게 현재 클라이언트들의 현황을 알려줌
@@ -173,7 +173,7 @@ void Network::process_packet(int client_id, unsigned char* p)
 			std::cout << "Invalid move in client " << client_id << std::endl;
 			exit(-1);
 		}
-
+		
 		// 이동한 클라이언트에 대한 nearlist 생성
 		// 꼭 unordered_set이여야 할까?
 		// 얼마나 추가될지 모르고, 데이터는 id이기 때문에 중복없음이 보장되있다. id로 구분안하는 경우가 있나?
@@ -198,7 +198,7 @@ void Network::process_packet(int client_id, unsigned char* p)
 
 
 		// 움직임으로써 시야에 들어온 플레이어 확인 및 추가
-		for (int other : nearlist) {
+		for (int other : nearlist) { 
 			// cl의 뷰리스트에 없으면
 			if (0 == my_vl.count(other)) {
 				// cl의 뷰리스트에 추가하고

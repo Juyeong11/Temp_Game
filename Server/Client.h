@@ -39,7 +39,7 @@ public:
 	char name[MAX_NAME_SIZE];
 	int	   id;
 	short  x, y;
-
+	int	last_move_time;
 	std::mutex state_lock;
 	//volatile«ÿ¡‡æﬂ «—¥Ÿ.
 	volatile STATE state;
@@ -53,7 +53,7 @@ public:
 	int		prev_recv_size;
 public:
 
-	Client() :state(ST_FREE)
+	Client() :state(ST_FREE), last_move_time(0)
 	{
 		x = 0;
 		y = 0;

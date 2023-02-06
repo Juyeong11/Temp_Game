@@ -19,32 +19,35 @@ public class Network
     // Start is called before the first frame update
     byte[] receiveBytes = new byte[BUFSIZE];
 
+    static int pre_buf_size = 0;
     void receiveComplet(System.IAsyncResult ar)
     {
 
-        // 메세지가 오면 왔다고 말을 해줘야 하는데 어떤 방법으로 해줘야 하지?
-        // 메세지 큐에 담아두고 엔진 루프에서 꺼내주자
         Socket c_Socket = (Socket)ar.AsyncState;
         int strLength = c_Socket.EndReceive(ar);
 
-        int index = 0;
+        int data_size = pre_buf_size + strLength;
+        int packet_start_index = 0;
+        int packet_size = receiveBytes[packet_start_index];
 
-        while (index < strLength)
+        while (packet_size <= data_size)
         {
-            //잘라서 받아야겠는걸??
-            int size = receiveBytes[index];
-            //Debug.Log(size);
-            byte[] temp = new byte[size];
-            Buffer.BlockCopy(receiveBytes, index, temp, 0, size);
-            index += size;
+            //
+            byte[] packet = new byte[packet_size];
+            Buffer.BlockCopy(receiveBytes, packet_start_index, packet, 0, packet_size);
+            MessQueue.Enqueue(packet);
 
-
-            MessQueue.Enqueue(temp);
-
+            //
+            data_size -= packet_size;
+            packet_start_index += packet_size;
+            if (data_size > 0) packet_size = receiveBytes[packet_start_index];
         }
-        //Debug.Log(BitConverter.ToString(receiveBytes));
+        pre_buf_size = data_size;
 
-        ClientSocket.BeginReceive(receiveBytes, 0, BUFSIZE, SocketFlags.None, new System.AsyncCallback(receiveComplet), ClientSocket);
+        // 
+        if (data_size > 0) Buffer.BlockCopy(receiveBytes, data_size, receiveBytes, 0, data_size);
+
+        ClientSocket.BeginReceive(receiveBytes, pre_buf_size, BUFSIZE, SocketFlags.None, new System.AsyncCallback(receiveComplet), ClientSocket);
     }
     void sendComplet(System.IAsyncResult ar)
     {
