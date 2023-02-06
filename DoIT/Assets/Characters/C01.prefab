@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7326428651682546794}
   m_Layer: 0
   m_Name: FootCollider
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -85,9 +85,11 @@ GameObject:
   - component: {fileID: 5920294538570134696}
   - component: {fileID: 5920294538570134711}
   - component: {fileID: 5920294538570134697}
+  - component: {fileID: 3279830221247513400}
+  - component: {fileID: 5920294538777260457}
   m_Layer: 0
   m_Name: C01
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -175,7 +177,7 @@ Rigidbody2D:
   m_Mass: 0.9
   m_LinearDrag: 0
   m_AngularDrag: 0
-  m_GravityScale: 1
+  m_GravityScale: 1.5
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -228,8 +230,44 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2c10fb50b183fc47ad67330a47b82fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myCharacterHorizontalVelocity: 300
-  myCharacterJumpPower: 2500
+  PStater: {fileID: 0}
+  myCharacterMaxVelocity: 3
+  myCharacterHorizontalVelocity: 1000
+  myCharacterJumpPower: 250
   maxJumpCount: 1
   _rigidbody2D: {fileID: 5920294538570134698}
   selfFoot: {fileID: 7326428651682546794}
+--- !u!114 &3279830221247513400
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5920294538570134702}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3daddc3785bc56e4cb2164104a96248e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  State: 0
+  atlas: {fileID: 4343727234628468602, guid: a4975ea05e9a35047ac1627077bb1573, type: 2}
+--- !u!95 &5920294538777260457
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5920294538570134702}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7db96f8d211fa69449529763e92c6add, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

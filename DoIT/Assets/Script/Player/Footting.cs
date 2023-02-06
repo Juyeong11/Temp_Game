@@ -11,4 +11,9 @@ public class Footting : MonoBehaviour
     {
         footted(other);
     }
+
+    private void OnTriggerStay2D(Collider2D other)
+    {
+        footted(other);
+    }
 }
