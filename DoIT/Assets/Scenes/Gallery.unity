@@ -2016,34 +2016,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 43977726, guid: 99f5df35e65bbe646ae60282ebaf97a7, type: 3}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
+    - target: {fileID: 3279830221247513400, guid: 99f5df35e65bbe646ae60282ebaf97a7, type: 3}
+      propertyPath: anim
+      value: 
+      objectReference: {fileID: 5920294538777260457}
     - target: {fileID: 5920294538570134697, guid: 99f5df35e65bbe646ae60282ebaf97a7, type: 3}
-      propertyPath: myCharacterJumpPower
-      value: 250
-      objectReference: {fileID: 0}
-    - target: {fileID: 5920294538570134697, guid: 99f5df35e65bbe646ae60282ebaf97a7, type: 3}
-      propertyPath: myCharacterMaxVelocity
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5920294538570134697, guid: 99f5df35e65bbe646ae60282ebaf97a7, type: 3}
-      propertyPath: myCharacterHorizontalVelocity
-      value: 1000
-      objectReference: {fileID: 0}
-    - target: {fileID: 5920294538570134698, guid: 99f5df35e65bbe646ae60282ebaf97a7, type: 3}
-      propertyPath: m_BodyType
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5920294538570134698, guid: 99f5df35e65bbe646ae60282ebaf97a7, type: 3}
-      propertyPath: m_Simulated
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5920294538570134698, guid: 99f5df35e65bbe646ae60282ebaf97a7, type: 3}
-      propertyPath: m_GravityScale
-      value: 1.5
-      objectReference: {fileID: 0}
+      propertyPath: PStater
+      value: 
+      objectReference: {fileID: 5920294538777260458}
     - target: {fileID: 5920294538570134700, guid: 99f5df35e65bbe646ae60282ebaf97a7, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -2092,9 +2072,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: C01
       objectReference: {fileID: 0}
-    - target: {fileID: 5920294538570134702, guid: 99f5df35e65bbe646ae60282ebaf97a7, type: 3}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 99f5df35e65bbe646ae60282ebaf97a7, type: 3}
+--- !u!95 &5920294538777260457 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5920294538777260457, guid: 99f5df35e65bbe646ae60282ebaf97a7, type: 3}
+  m_PrefabInstance: {fileID: 5920294538777260455}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5920294538777260458 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3279830221247513400, guid: 99f5df35e65bbe646ae60282ebaf97a7, type: 3}
+  m_PrefabInstance: {fileID: 5920294538777260455}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3daddc3785bc56e4cb2164104a96248e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
