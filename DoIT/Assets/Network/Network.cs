@@ -96,6 +96,6 @@ public class Network
 
 
 
-        if (Input.GetKeyDown(KeyCode.Space)) Application.Quit();
+        //if (Input.GetKeyDown(KeyCode.Space)) Application.Quit();
     }
 }

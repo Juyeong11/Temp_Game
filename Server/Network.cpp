@@ -231,7 +231,7 @@ void Network::process_packet(int client_id, unsigned char* p)
 			else {
 				clients[other].vl.lock();
 				//상대방에 뷰리스트에 내가 있는지 확인
-				if (0 == clients[other].viewlist.count(cl.id))
+				if (0 != clients[other].viewlist.count(cl.id))
 				{
 					clients[other].vl.unlock();
 
@@ -292,8 +292,8 @@ void Network::worker()
 
 		if (FALSE == ret) {
 
-			error_display(WSAGetLastError());
-
+			//error_display(WSAGetLastError());
+			std::cout << client_id << "user logout\n";
 			disconnect_client(client_id);
 			if (exp_over->_comp_op == OP_SEND)
 				delete exp_over;
