@@ -10,7 +10,7 @@ public:
 	WSABUF			_wsa_buf;
 	unsigned char	_net_buf[BUFSIZE];
 public:
-	EXP_OVER(COMP_OP comp_op, char num_bytes, void* mess) : _comp_op(comp_op)
+	EXP_OVER(COMP_OP comp_op, unsigned int num_bytes, void* mess) : _comp_op(comp_op)
 	{
 		ZeroMemory(&_wsa_over, sizeof(_wsa_over));
 		_wsa_buf.buf = reinterpret_cast<char*>(_net_buf);

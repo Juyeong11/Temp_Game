@@ -7,6 +7,9 @@
 #include<mutex>
 #include<unordered_set>
 
+//box2d
+#include <new>
+#include <string.h>
 
 const int BUFSIZE = 256;
 
